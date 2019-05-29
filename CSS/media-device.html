@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            미디어 테스트 2
+        </title>
+        <style>
+            /* 세로 */
+            * { color: black; }
+            /* 가로 */
+            /* Desktop의 화면은 가로화면(landscape)이므로 아래 rule이 적용된다. */
+            /* @media screen and (orientation: landscape) {
+                * { color: blue; }
+            } */
+
+            /* Landscape */
+            @media screen
+                /* 디바이스가 모바일일때(device-width 0 ~ 768px)  */
+                and (max-device-width: 760px) 
+                /* device-width 삭제됨.... */
+                and (orientation: landscape) {
+                    * { color: blue; }
+                }
+        </style>
+    </head>
+    <body>
+        <h1>@media practice</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam unde accusantium maxime voluptate veritatis esse, beatae iste perspiciatis rerum vitae eum nesciunt eaque labore accusamus minima voluptatibus dolor rem id?</p>
+    </body>
+</html>

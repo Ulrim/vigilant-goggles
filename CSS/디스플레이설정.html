@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .wrapper {
+      font-size: 0; /*요소간 간격을 제거*/
+    }
+    .inline-block {
+      display: inline-block;
+      vertical-align: middle; /* inline-block 요소 수직 정렬 */
+      border: 3px solid #73AD21;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    .box1 {
+      width: 300px;
+      height: 100%;
+    }
+    .box2 {
+      width: 300px;
+      height: 150px;
+    }
+  </style>
+</head>
+<body>
+  <div class="inline-block box1">inline-block height 70px
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut cupiditate eligendi, deserunt iste quas officiis numquam, placeat suscipit quasi, neque nemo dicta? Vel quae blanditiis harum velit id exercitationem mollitia.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, eaque modi? Odit quaerat quam quibusdam voluptatum tempora, ad rem saepe. Amet maxime sequi dolor at minus repudiandae, ad voluptatum blanditiis.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, atque mollitia. Quod magnam repellat aliquam neque explicabo dolores totam pariatur, nobis minima odit, dolor quaerat molestias dignissimos aut. Dolorem, sit!
+  </div>
+  <div class="inline-block box2">inline-block height 150px</div>
+  <div class="inline-block box2">inline-block height 150px</div>
+
+  <div class="wrapper">
+    <div class="inline-block box1">inline-block height 70px</div>
+    <div class="inline-block box2">inline-block height 150px</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Flexbox Layout Example</title>
+        <style>
+            /* flexbox item 속성 */
+            /* float, clear, vertical-aling 속성은 flex item에 영향을 주지 않는다. */
+            .flex-container {
+                margin: 10px;
+                padding: 15px;
+                border-radius: 5px;
+                background: #60B99A;
+                
+                display: flex;
+                /* flex-flow : direction + wrap */
+                flex-flow: row wrap;
+                /* flex-wrap: wrap; */
+                /* overflow: auto; */
+                /* flex-direction: row; */
+                /* justify-content는 main axis를 기준으로 flex item을 수평정렬한다. */
+                justify-content: space-around;
+                /* align-items: baseline; */
+                /* align-content: stretch; */
+            }
+            .flex-item {
+                margin: 10px;
+                padding: 20px;
+                color: #fff;
+                text-align: center;
+                border-radius: 5px;
+                background: #4584b4;
+            }
+            .flex-item:nth-child(1) {
+                order: 2;
+                /* flex-grow: 2; */
+                flex-basis: 100px;
+            }
+            .flex-item:nth-child(2) {
+                order: 1;
+                /* flex-grow: 3; */
+                align-self: flex-end;
+            }
+            .flex-item:nth-child(3) {
+                order: 4;
+                /* flex-grow: 1; */
+            }
+            .flex-item:nth-child(4) {
+                order: 3;
+                /* flex-grow: 4; */
+            }
+            .flex-item:nth-child(5) {
+                order: 5;
+                /* flex-grow: 2; */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-container">
+            <div class="flex-item">
+                <h1>1</h1>
+            </div>
+            <div class="flex-item">
+                <h1>2</h1>
+            </div>
+            <div class="flex-item">
+                <h1>3</h1>
+            </div>
+            <div class="flex-item">
+                <h1>4</h1>
+            </div>
+            <div class="flex-item">
+                <h1>5</h1>
+            </div>
+        </div>
+    </body>
+</html>
