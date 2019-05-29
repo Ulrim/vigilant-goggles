@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Layout</title>
+        <style>
+            /* Simple Reset Css */
+            /* 초기에 모든 margin, padding 초기화 */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            /* body : 마음에 드는걸로 설정 가능 */
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                color: #58666e;
+                background-color: #f0f3f4;
+            }
+            /* li 태그 앞에 특수문자를 없애준다. */
+            li {
+                list-style: none;
+            }
+            /* 선을 만들지 않는다. */
+            a {
+                text-decoration: none;
+            }
+            /* header 설정... */
+            header {
+                width: 100%;
+                height: 60px;
+                z-index: 2000;
+                background-color: #fff;
+                box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+            }
+            nav {
+                float: right;
+            }
+            /* 로고 설정 */
+            .logo {
+                display: inline-block;
+                height: 36px;
+                margin: 12px 0 12px 25px;
+            }
+            .logo > img { 
+                height: 36px; 
+            }
+            /* nav-items 설정 */
+            .nav-items > li {
+                display: inline-block;
+            }
+            .nav-items > li > a {
+                line-height: 60px;
+                padding: 0 30px;
+                color: rgba(0, 0, 0, 0.4)
+            }
+            /* hover시 a태크 색상 변경 */
+            .nav-items > li > a:hover { 
+                color: rgba(0, 0, 0, 0.8);
+            }
+
+            /* clearfix */
+            #content-wrap::after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+            aside {
+                /* for fixed side bar */
+                position: fixed;
+                top: 60px;
+                bottom: 0;
+
+                width: 200px;
+                padding-top: 25px;
+                background-color: #333;
+            }
+            aside > ul {
+                width: 200px;
+            }
+            aside > ul > li > a {
+                display: block;
+                color: #fff;
+                padding: 10px 0 10px 20px;
+            }
+            aside > ul > li > a.active {
+                background-color: #4caf50;
+            }
+            aside > ul > li > a:hover:not(.active) {
+                background-color: #555;
+            }
+            aside > h1 {
+                padding: 20px 0 20px 20px;
+                color: #fff;
+            }
+            /* Section */
+            section {
+                float: right;
+                /* aside width */
+                margin-left: 200px;
+            }
+            article {
+                width: 48.5%;
+                margin: 1%;
+                padding: 25px;
+                background-color: white;
+                float: left;
+            }
+            article:nth-of-type(2n) {
+                margin-left: 0;
+            }
+            article:nth-of-type(n+3) {
+                margin-top: 0;
+            }
+            header {
+                /* for sticky header */
+                position: fixed;
+                top: 0;
+            }
+            #wrap {
+                /* margin-top = header height */
+                margin-top: 60px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+            h1, h2, h3, h4, h5, h6 p {
+                margin: 10px 5px;
+            }
+
+            footer {
+                /* footer를 aside위에 올리기 위해 사용(부유객체) */
+                position: absolute;
+                height: 60px;
+                width: 100%;
+                padding: 0 25px;
+                line-height: 60px;
+                color: #8a8c8f;
+                border-top: 1px solid #dee5e7;
+                background-color: #f2f2f2;
+            }
+            /* navicon 설정 */
+            .navicon {
+                cursor: pointer;
+                height: 60px;
+                padding: 28px 15px;
+                position: absolute;
+                top: 0; right: 0;
+
+                /* 벤더프리픽스(vendor prefix) 사용 */
+                -webkit-user-select: none;  /* Chrome all / Safari all */
+                -moz-user-select: none;     /* Firefox all */
+                -ms-user-select: none;      /* IE 10+ */
+                user-select: none;          /* Likely future */
+            }
+            .navicon-bar {
+                background-color: #333;
+                display: block;
+                position: relative;
+                transition: background-color .2s ease-out;
+                width: 20px;
+                height: 3px;
+            }
+            .navicon-bar::before,
+            .navicon-bar::after {
+                background-color: #333;
+                content: "";
+                display: block;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                transition: all .2s ease-out;
+            }
+            .navicon-bar::before {
+                top: -7px;
+            }
+            .navicon-bar::after {
+                top: 7px;
+            }
+            /* 애니메이션 설정 = 'X'*/
+            .nav-toggle:checked ~ .navicon > .navicon-bar {
+                background: transparent;
+            }
+            .nav-toggle:checked ~ .navicon > .navicon-bar::before {
+                transform: rotate(45deg);
+                top: 0;
+            }
+            .nav-toggle:checked ~ .navicon > .navicon-bar::after {
+                transform: rotate(-45deg);
+                top: 0;
+            }
+            /* navicon : 비활성화 */
+            .nav-toggle {
+                display: none;
+            }
+            .navicon {
+                display: none;
+            }
+
+            /* Media Query */
+            /* 
+                Media Query는 기술 순서에 의미가 있다.
+                만일 스마트폰용 스타일을 태블릿용 스타읿다 먼저 기술하면 최종적으로 태블릿용 스타일이 적용된다.
+                Non Mobile First Method의 경우, max-width의 값이 큰 것부터 기술하여 한다.
+            */
+            /* for Desktop: 801px ~ */
+            /* 위쪽에 설정 되어있음.. */
+            /* for tablet: ~ 800px */
+            @media screen and (max-width: 800px) {
+                header {
+                    height: 120px;
+                    text-align: center;
+                }
+                nav {
+                    float: none;
+                }
+                #warp {
+                    /* margin-top = header height */
+                    margin-top: 120px;
+                }
+                aside {
+                    top: 120px;
+                }
+                article {
+                    width: inherit;
+                    display: block;
+                    margin: 10px;
+                    float: none;
+                }
+                article:nth-of-type(2n) {
+                    margin: 10px;
+                }
+                article:nth-of-type(n+2) {
+                    margin-top: 0;
+                }
+            }
+            /* for smartphone: ~ 480px */
+            @media screen and (max-width: 480px) {
+                header {
+                    height: 60px;
+                }
+                #wrap {
+                    /* margin-top = header height */
+                    margin-top: 60px;
+                }
+                /* aside를 왼쪽에서 위쪽으로 올려줌. */
+                aside {
+                    top: 60px;
+                    position: static;
+                    width: 100%;
+                    padding: 5px 0;
+                }
+                /* aside navigation */
+                aside > ul {
+                    width: 100%;
+                }
+                aside > h1 {
+                    padding: 5px 0 10px 20px;
+                    color: #fff;
+                }
+                section {
+                    float: none;
+                    margin-left: 0;
+                }
+                .nav-items {
+                    /* nav-items 비활성화 */
+                    display: none;
+                }
+                .navicon {
+                    /* navicon 활성화 */
+                    display: block;
+                }
+                .nav-toggle:checked ~ .nav-items {
+                    display: block;
+                    width: 100%;
+                    background-color: #fff;
+                    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+                }
+                /* block : 1행을 차지함. */
+                .nav-items > li {
+                    display: block;
+                }
+                .nav-items > li > a {
+                    line-height: 50px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <header>
+                <a class="logo" href="#home">
+                    <img src="https://poiemaweb.com/img/logo.png" height="36px">
+                </a>
+                <nav>
+                    <!-- input의 id값과 label의 for값을 동일하게하여 input과 label를 연동시킨다. -->
+                    <input class="nav-toggle" id="nav-toggle" type="checkbox">
+                    <label class="navicon" for="nav-toggle">
+                        <span class="navicon-bar"></span>
+                    </label>
+                    <ul class="nav-items">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div id="content-wrap">
+                <aside>
+                    <h1>Aside</h1>
+                    <ul>
+                        <li><a href="#" class="active">London</a></li>
+                        <li><a href="#">Paris</a></li>
+                        <li><a href="#">Tokyo</a></li>
+                        <li><a href="#">Newyork</a></li>
+                    </ul>
+                </aside>
+                <section>
+                    <article id="london">
+                        <h1>London</h1>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde voluptatibus neque error qui, fugiat accusamus. Harum error voluptates inventore eos suscipit, ad, totam esse laboriosam quas aperiam laborum aspernatur reprehenderit.</p>
+                    </article>
+                    <article id="Paris">
+                        <h1>Paris</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, obcaecati sed. Soluta deleniti eum nobis eligendi, saepe fuga porro quos suscipit, molestias dignissimos fugit quisquam voluptas sequi harum reiciendis aperiam?</p>
+                    </article>
+                    <article id="Tokyo">
+                        <h1>Tokyo</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem tempora nisi vitae aliquid, tenetur animi aperiam consectetur impedit amet autem aliquam magni laboriosam vero ea velit similique hic, accusantium inventore.</p>
+                    </article>
+                    <article id="Newyork">
+                        <h1>Newyork</h1>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos omnis id ea error velit voluptatibus laboriosam sit porro voluptates consequatur neque dolor et at tenetur, mollitia vero minima veritatis delectus!</p>
+                    </article>
+                </section>
+            </div>
+            <footer>© Copyright 2019 JS</footer>
+        </div>
+    </body>
+</html>
