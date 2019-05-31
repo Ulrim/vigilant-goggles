@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>
+            img를 blob코드로 변경 후 다시 img로 만들기
+        </title>
+    </head>
+    <body>
+        <div>
+            원본 이미지 : 
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCCJdpkKFvw1qo8zBA5SWpCX1cASSS4FKYX4Xv1B8HVILEP6eq" />
+        </div>
+        <div>
+            Blob코드로 불러온 이미지 : 
+            <img id="blob" alt="blob" />
+        </div>
+    </body>
+    <script>
+        /* 
+            img => blob => img 화질의 차이는 생기는 거 같다...
+            그런데 크기(용량) 변화는 없다...?
+            뭘까...;
+        */
+
+        // img => blob 함수 호출
+        loadXHR("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCCJdpkKFvw1qo8zBA5SWpCX1cASSS4FKYX4Xv1B8HVILEP6eq").then(function(blob) {
+            
+        blob_img(blob); // blob => img함수 호출
+            console.log(blob);
+        });
+
+        // blob -> img
+        const blob_img = function (blob){
+            // blob코드를 url로 생성
+            // 참조 : https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL
+            const url = URL.createObjectURL(blob);
+            const img = document.getElementById('blob'); // id값이 'blob'인 값을 찾아서 img로 넣음
+            img.src = url; // img의 src에 url 넣기
+
+            // 생성된 ObjectURL의 사용을 마쳤다면 아래 메소드를 호출해 메모리에서 해제해주는 것이 좋다.
+            /* 궁금증한건 테스트해보자
+                1. 아래있는 img.onload를 주석으로 처리 후 실행해보자! (오류는 나지않는다.)
+                2. 소스 파일을 확인해서 'blob'코드로 불러온 이미지 'url'을 복사해서 다른 페이지에서 실행 시켜보자.
+                3. 실행 되는지 확인했는가?
+                4. 다음은 주석 처리를 풀고 실행 시켜보자!
+                5. 그 후 url을 복사해서 다른 페이지에서 실행 시켜보자. (url은 동일하다.)
+                6. 결과 확인... (어떤 역할을 하는지 확인!)
+            */
+            img.onload = function() {
+                URL.revokeObjectURL(this.src);
+            }
+            console.log("blob url : " + url);
+        }
+
+        // MDN 문서 참조(XMLHttpRequest 사용하기) : https://developer.mozilla.org/ko/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
+
+        // img => blob 변경
+        function loadXHR(url) {
+            // Promise는 비동기 조작의 최종 완료나 실패를 표현해주는 객체입니다. (MDN 참조)
+            // Promise 사용하기 참조 : https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Using_promises
+            return new Promise(function(resolve, reject) {
+                try {
+                    // XMLHttpRequest() 함수 호출
+                    // 참조 : https://developer.mozilla.org/ko/docs/Web/API/XMLHttpRequest
+                    // 간단 설명 : 서버와 상호작용 / 전체 페이지의 새로고침없이도 URL로부터 데이터를 받아옴 / 모든 종류의 데이터를 받아옴.
+                    var xhr = new XMLHttpRequest();
+
+                    // 요청을 초기화 (방식 설정 : "GET", "POST")
+                    // 불러올 데이터의 url 설정
+                    xhr.open("GET", url);
+
+                    // 응답 타입을 정의하는 열거형 값
+                    // ArrayBuffer, Blob 등..
+                    xhr.responseType = "blob";
+
+                    // 에러 이벤트 함수
+                    xhr.onerror = function() {
+                        reject("Network error.")
+                    };
+                    xhr.onload = function() {
+                        // HTTP 상태코드 200일 시..( 성공 응답 상태 코드 )
+                        if(xhr.status === 200) {
+                            resolve(xhr.response)
+                        } else {
+                            reject("Loading error: " + xhr.statusText)
+                        }
+                    };
+                    // 요청을 보냄 (기본값 : 비동기)
+                    xhr.send();
+                } catch(err) {
+                    reject(err.message)
+                }
+            });
+        }
+
+        // 다음 과제 : 리팩토링 해보기...
+    </script>
+</html>
