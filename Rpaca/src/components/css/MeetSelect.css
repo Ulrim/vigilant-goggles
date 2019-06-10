@@ -1,0 +1,22 @@
+.MeetSelect {
+    display: flex;
+    flex-direction: row;
+}
+
+.MeetSelect div {
+    text-align: center;
+}
+
+.MeetSelect .MeetText {
+    width: 45%;
+    height: 300px;
+    background: pink;
+    margin: 10px auto 10px;
+}
+
+.MeetSelect .MeetVoice {
+    width: 45%;
+    height: 300px;
+    background: powderblue;
+    margin: 10px auto 10px;
+}

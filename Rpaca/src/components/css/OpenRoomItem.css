@@ -1,0 +1,32 @@
+.OpenRoomItem {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.OpenRoomItem .OpenRoomImg {
+    align-self: center;
+    flex-grow: 1;
+}
+
+.OpenRoomItem .name {
+    align-self: center;
+    flex-grow: 2;
+}
+
+.OpenRoomItem .OpenRoomDesc {
+    align-self: center;
+    flex-grow: 3;
+    overflow: hidden;
+    width: 100px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.OpenRoomItem .OpenRoomPer {
+    margin-right: 5px;
+    align-self: center;
+    text-align: center;
+}

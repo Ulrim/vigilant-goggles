@@ -1,0 +1,8 @@
+.Meet {
+    margin-top: 50px;
+}
+
+.Meet .MeetDisplay {
+    display: flex;
+    flex-direction: column;
+}

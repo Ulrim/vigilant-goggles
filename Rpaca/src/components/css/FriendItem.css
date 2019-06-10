@@ -1,0 +1,29 @@
+.FriendItem {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    border: 1px solid black;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.FriendItem .friendImg {
+    align-self: center;
+    flex-grow: 1;
+}
+
+.FriendItem .name {
+    flex-grow: 3;
+    align-self: center;
+}
+.FriendItem .ChatGo {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    flex-grow: 2;
+}
+
+.ChatGo div {
+    flex-grow: 1;
+    text-align: center;
+}

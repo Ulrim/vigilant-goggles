@@ -1,0 +1,114 @@
+.MeetBar {
+    display: flex;
+    flex-direction: row;
+}
+
+.MeetBar .WishGender {
+    display: flex;
+    width:50%;
+    height:100px;
+    overflow:hidden;
+    border: 1px solid #000;
+    clip: rect(0, auto, auto, 0);
+    align-items: center;
+    /* justify-items: center; */
+    background: rgba(0,0,0,0.5);
+}
+
+.WishGender .name {
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.WishGender #wish {
+    display: none;
+}
+
+#wish:checked ~ .name {
+    color: white;
+    /* background: rgba(0,0,0,0.5); */
+}
+
+#wish:checked ~ .WishSub {
+    transform: translateX(0);
+}
+#wish:checked ~ .closer {
+    display: flex;
+    font-size: 30px;
+}
+
+.WishGender .btn {
+    display: inline-flex;
+    padding: 10px 20px;
+    background: #eee;
+}
+
+.WishGender .closer {
+    position: fixed;
+    display: none;
+    width: 40%;
+    height: 100px;
+    cursor: pointer;
+    /* background: black; */
+}
+
+.WishSub {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-500%);
+    transition: transform 0.5s ease-out;
+    margin-left: 10px;
+    /* background: #2d3e52; */
+}
+
+.WishSub div {
+    padding: 0;
+}
+
+.WishSub input {
+    display: none;
+}
+
+.WishSub label {
+    width: 100%;
+    height: 40px;
+    float: left;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 20px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.WishSub label:hover {
+    color: aqua;
+    cursor: pointer;
+}
+
+.WishSub #Male:checked ~ .InMale {
+    background: #000;
+    color: white;
+}
+
+.WishSub #Female:checked ~ .InFemale {
+    background: #000;
+    color: white;
+}
+
+/* 
+.WishGender:hover {
+    background: red;
+} */
+
+.MeetBar .Interest {
+    display: flex;
+    width:50%;
+    height:100px;
+    overflow:hidden;
+    border: 1px solid #000;
+    clip: rect(0, auto, auto, 0);
+    align-items: center;
+    justify-items: center;
+}

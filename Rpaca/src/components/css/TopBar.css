@@ -1,0 +1,41 @@
+.TopBar {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: -1px;
+    background: wheat;
+    border: 1px solid black;
+    z-index: 2000;
+}
+
+.TopBar ul {
+    margin: 0;
+    padding-left: 0;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.TopBar ul li {
+    padding: 15px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.TopBar .TopIng {
+    flex-grow: 2;
+}
+
+.TopBar .TopName {
+    flex-grow: 3;
+    text-align: start;
+}
+
+.TopBar .TopLogin {
+    flex-grow: 1;
+}
+
+.TopBar .TopSet {
+    flex-grow: 1;
+}
