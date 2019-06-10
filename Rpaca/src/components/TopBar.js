@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import './css/TopBar.css';
 
 const TopBar = () => {
@@ -20,17 +20,16 @@ const TopBar = () => {
                 <li className="TopName">
                     Hi! Id
                 </li>
-                <Link to={{
-                    pathname: "/Login",
-                    state: { modal: true }
-                }} >
+                <Link to="/Login">
                     <li className="TopLogin">
                         로그인
                     </li>
                 </Link>
-                <li className="TopSet">
-                    설정
-                </li>
+                <Link to="/setting">
+                    <li className="TopSet">
+                        Set
+                    </li>
+                </Link>
             </ul>
         </div>
     );

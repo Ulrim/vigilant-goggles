@@ -4,7 +4,7 @@ import MeetSelect from '../components/MeetSelect';
 import NavBar from '../components/NavBar';
 import './css/Meet.css';
 import TopBar from '../components/TopBar';
-
+import Adv from '../components/Adv';
 const Meet = () => {
     return(
         <div className="Meet">
@@ -15,6 +15,7 @@ const Meet = () => {
                 <MeetSelect />
                 <MeetBar />
             </div>
+            <Adv />
             <NavBar />
         </div>
     );

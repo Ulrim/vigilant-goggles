@@ -5,19 +5,26 @@
 
 .MeetBar .WishGender {
     display: flex;
-    width:50%;
+    width:47%;
     height:100px;
+    margin: 10px auto 10px;
+    
     overflow:hidden;
-    border: 1px solid #000;
     clip: rect(0, auto, auto, 0);
-    align-items: center;
+    /* align-items: center; */
     /* justify-items: center; */
-    background: rgba(0,0,0,0.5);
+
+    background-color: rgba(94, 93, 93, 0.39);
+    box-shadow: 5px 5px rgba(128, 128, 128, 0.774);
 }
 
 .WishGender .name {
+    align-self: center;
     margin-left: auto;
     margin-right: auto;
+    font-size: 1.5rem;
+    color:rgba(255, 255, 255, 0.877);
+    font-family: 'Sigmar One', cursive;
     cursor: pointer;
 }
 
@@ -40,7 +47,7 @@
 
 .WishGender .btn {
     display: inline-flex;
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
     background: #eee;
 }
 
@@ -104,11 +111,25 @@
 
 .MeetBar .Interest {
     display: flex;
-    width:50%;
+    width:47%;
     height:100px;
+    margin: 10px auto 10px;
     overflow:hidden;
-    border: 1px solid #000;
-    clip: rect(0, auto, auto, 0);
-    align-items: center;
-    justify-items: center;
+    /* border: 1px solid #000;
+    clip: rect(0, auto, auto, 0); */
+    /* align-items: center;
+    justify-items: center; */
+
+    background-color: rgba(94, 93, 93, 0.39);
+    box-shadow: 5px 5px rgba(128, 128, 128, 0.774);
+}
+
+.Interest div {
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.5rem;
+    color:rgba(255, 255, 255, 0.877);
+    font-family: 'Sigmar One', cursive;
+    cursor: pointer;
 }

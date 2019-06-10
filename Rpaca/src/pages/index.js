@@ -11,3 +11,4 @@ export { default as Login } from './Login';
 // sub pages
 export { default as MeetText } from './subpages/MeetText';
 export { default as MeetVoice } from './subpages/MeetVoice';
+export { default as Profile } from './subpages/Profile';

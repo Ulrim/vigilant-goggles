@@ -1,12 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Sigmar+One&display=swap');
+
 .NavBar {
     position: fixed;
-    left: -1px;
+    left: 0;
     bottom: 0;
     width: 100%;
     height: 70px;
-    border: 1px solid black;
-    background: wheat;
+    background: rgb(255, 255, 255);
+    border-top: 3px solid rgba(0, 0, 0, 0.349);
+    border-radius: 10px;
     z-index: 2000;
+    font-family: 'Sigmar One', cursive;
 }
 
 .NavBar ul {
@@ -38,3 +42,4 @@
 .NavBar ul li {
     text-align: center;
 }
+

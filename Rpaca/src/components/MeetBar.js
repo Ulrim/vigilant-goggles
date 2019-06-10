@@ -5,11 +5,13 @@ const MeetBar = () => {
     return (
         <div className="MeetBar">
             <div className="WishGender">
-                <input type="checkbox" id="wish" className="btn"></input>
-                <label htmlFor="wish" className="name">
-                    <h2>Wish gender</h2>
-                </label>
-                <label for="wish" className="closer"></label>
+                    <input type="checkbox" id="wish" className="btn"></input>
+                    <label htmlFor="wish" className="name">
+                        <div>
+                        Wish gender
+                        </div>
+                    </label>
+                    <label for="wish" className="closer"></label>
 
                 <div className="WishSub">
                     <input type="checkbox" id="Male" className="Male"></input>
@@ -23,8 +25,7 @@ const MeetBar = () => {
                 </div>
             </div>
             <div className="Interest">
-                <h2>Interest</h2>
-                <input type="text" id="Interest" className="checkText"></input>
+                <div>Interest</div>
             </div>
         </div>
     );

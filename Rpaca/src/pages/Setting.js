@@ -7,7 +7,15 @@ const Setting = () => {
     return (
         <div className="Setting">
             <TopBar />
-            Set
+                <div>
+                    프로필 수정
+                </div>
+                <div>
+                    비밀번호 수정
+                </div>
+                <div>
+                    친구 관리
+                </div>
             <NavBar />
         </div>
     );

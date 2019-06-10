@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Home, Meet, Friend, OpenRoom, Setting, MyRoom, Login } from '../pages';
-import { MeetText, MeetVoice } from '../pages';
+import { MeetText, MeetVoice, Profile } from '../pages';
 
 class App extends Component {
     render() {
@@ -18,6 +18,7 @@ class App extends Component {
                 <Route path="/OpenRoom" component={OpenRoom} />
                 <Route path="/setting" component={Setting} />
                 <Route path="/Login" component={Login} />
+                <Route path="/Profile" component={Profile} />
             </div>
         );
     }

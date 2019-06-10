@@ -18,19 +18,19 @@ const NavBar = () => {
                 </Link>
                 <Link to="/MyRoom">
                     <li>
-                        MyRoom
+                        My Room
                     </li>
                 </Link>
                 <Link to="/OpenRoom">
                     <li>
-                        OpenRoom
+                        Open Room
                     </li>
                 </Link>
-                <Link to="/setting">
+                {/* <Link to="/setting">
                     <li>
                         Set
                     </li>
-                </Link>
+                </Link> */}
             </ul>
         </div>
     );
