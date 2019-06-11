@@ -1,0 +1,33 @@
+.ContentItem {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    height: 40px;
+}
+
+.ContentItem div {
+    text-align: center;
+    align-self: center;
+}
+
+.ContentItem div:nth-child(1){
+    margin-left: 10px;
+    flex-grow: 0.5;
+}
+
+.ContentItem div:nth-child(2){
+    text-align: start;
+    flex-grow: 2.5;
+}
+
+.ContentItem div:nth-child(3){
+    flex-grow: 1;
+}
+
+.ContentItem div:nth-child(4){
+    flex-grow: 0.5;
+}
+
+.ContentItem div:nth-child(5){
+    flex-grow: 0.5;
+}

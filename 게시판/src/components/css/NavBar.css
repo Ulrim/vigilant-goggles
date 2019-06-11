@@ -1,0 +1,37 @@
+.NavBar {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    top: 0;
+    left: 0;
+    height: 70px;
+    border: 2px solid black;
+}
+
+.NavBar .title {
+    text-align: center;
+    align-self: center;
+    margin-left: 15px;
+}
+.NavBar ul {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    list-style: none;
+    width: 80%;
+    border: 2px solid black;
+}
+
+.NavBar ul li {
+        margin-left: auto;
+        margin-right: auto;
+        height: 30px;
+        padding: 10px;
+        color: black;
+}
+
+.NavBar ul li a {
+    text-decoration: none;
+}
