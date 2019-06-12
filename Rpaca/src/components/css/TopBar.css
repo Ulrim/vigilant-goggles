@@ -42,10 +42,6 @@
     text-align: start;
 }
 
-/* .TopBar .TopLogin {
-    flex-grow: 1;
+.TopBar .TopLogin, .TopSet {
+    cursor: pointer;
 }
-
-.TopBar .TopSet {
-    flex-grow: 1;
-} */

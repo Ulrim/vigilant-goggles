@@ -2,6 +2,7 @@ import React from 'react';
 import './css/Setting.css';
 import NavBar from '../components/NavBar';
 import TopBar from '../components/TopBar';
+import Counter from '../Counter';
 
 const Setting = () => {
     return (
@@ -17,6 +18,7 @@ const Setting = () => {
                     친구 관리
                 </div>
             <NavBar />
+            <Counter />
         </div>
     );
 };

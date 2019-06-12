@@ -5,7 +5,7 @@ export { default as Friend } from './Friend';
 export { default as OpenRoom } from './OpenRoom';
 export { default as Setting } from './Setting';
 export { default as MyRoom } from './MyRoom';
-export { default as Login } from './Login';
+// export { default as Login } from './Login';
 
 
 // sub pages

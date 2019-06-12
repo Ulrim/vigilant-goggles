@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import './css/TopBar.css';
+import { observer, inject } from 'mobx-react';
+import { observable } from 'mobx';
+import Login from '../pages/Login';
 
-const TopBar = () => {
-    const Child = ({ match }) => {
+@inject('login')
+@observer
+class TopBar extends Component {
+    render() {
+        const { login } = this.props;
+        const Child = ({ match }) => {
+            return (
+                <>
+                    {match.params.id}
+                </>
+            );
+        };
+
         return (
-            <>
-                {match.params.id}
-            </>
-        );
-    };
-
-    return (
         <div className="TopBar">
             <ul>
                 <li className="TopIng">
@@ -20,19 +27,24 @@ const TopBar = () => {
                 <li className="TopName">
                     Hi! Id
                 </li>
-                <Link to="/Login">
-                    <li className="TopLogin">
-                        로그인
-                    </li>
-                </Link>
+                <li 
+                    className="TopLogin"
+                    onClick={login.OnOff}
+                >
+                    Login
+                </li>
                 <Link to="/setting">
                     <li className="TopSet">
                         Set
                     </li>
                 </Link>
             </ul>
+            <div>
+                {login.value && <Login />}
+            </div>
         </div>
-    );
-};
+        );
+    }
+}
 
-export default TopBar;
+export default observable(TopBar);
