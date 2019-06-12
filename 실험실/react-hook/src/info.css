@@ -1,0 +1,7 @@
+.info {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    border: 2px solid black;
+}
