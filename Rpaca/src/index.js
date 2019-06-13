@@ -7,15 +7,15 @@ import * as serviceWorker from './serviceWorker';
 import Root from './client/Root';
 import CounterStore from './stores/counter';
 import { Provider } from 'mobx-react'; // Mobx에서 사용하는 Provider
-import LoginStore from './stores/LoginOnOff';
+import OnOffStore from './stores/OnOff';
 
 const counter = new CounterStore();
-const login = new LoginStore();
+const onoff = new OnOffStore();
 
 ReactDOM.render(
     <Provider 
         counter={counter}
-        login={login}
+        onoff={onoff}
     >
         <Root />
     </Provider>

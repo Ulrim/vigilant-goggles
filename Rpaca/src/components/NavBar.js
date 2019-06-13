@@ -26,11 +26,6 @@ const NavBar = () => {
                         Open Room
                     </li>
                 </Link>
-                {/* <Link to="/setting">
-                    <li>
-                        Set
-                    </li>
-                </Link> */}
             </ul>
         </div>
     );

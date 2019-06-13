@@ -5,11 +5,11 @@ import { observer, inject } from 'mobx-react';
 import { observable } from 'mobx';
 import Login from '../pages/Login';
 
-@inject('login')
+@inject('onoff')
 @observer
 class TopBar extends Component {
     render() {
-        const { login } = this.props;
+        const { onoff } = this.props;
         const Child = ({ match }) => {
             return (
                 <>
@@ -29,7 +29,7 @@ class TopBar extends Component {
                 </li>
                 <li 
                     className="TopLogin"
-                    onClick={login.OnOff}
+                    onClick={onoff.OnOff}
                 >
                     Login
                 </li>
@@ -40,7 +40,7 @@ class TopBar extends Component {
                 </Link>
             </ul>
             <div>
-                {login.value && <Login />}
+                {onoff.value && <Login />}
             </div>
         </div>
         );

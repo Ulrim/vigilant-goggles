@@ -3,15 +3,15 @@ import './css/Login.css';
 import { inject, observer } from 'mobx-react';
 import { observable }from 'mobx';
 
-@inject('login')
+@inject('onoff')
 @observer
 class Login extends Component {
     render() {
-        const { login } = this.props;
+        const { onoff } = this.props;
         return (
             <div className="Login">
             <div className="main">
-                <div className="close" onClick={ login.OnOff }>
+                <div className="close" onClick={ onoff.OnOff }>
                     Close
                 </div>
                 <div className="title">

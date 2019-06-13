@@ -20,15 +20,7 @@
     font-family: 'Sigmar One', cursive;
 }
 
-.MeetSelect .MeetText {
-    width: 45%;
-    height: 400px;
-    background-color: rgba(94, 93, 93, 0.39);
-    margin: 10px auto 10px;
-    box-shadow: 5px 5px rgba(128, 128, 128, 0.774);
-}
-
-.MeetSelect .MeetVoice {
+.MeetSelect .MeetText, .MeetVoice {
     width: 45%;
     height: 400px;
     background-color: rgba(94, 93, 93, 0.39);
