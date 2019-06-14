@@ -1,12 +1,12 @@
 <h1> 업데이트 내용 기록 </h1>
 
-<h2> V 0.0.2 </h2> 19.06.12 <br/>
+<h2> V 0.0.2 </h2> 19.06.12
  - 기존 작성된 코드 일부 수정 <br/>
  - MobX를 사용한 상태관리 시작 <br/>
    + 로그인 페이지 ON / OFF ( file : Login.js , TopBar.js ) <br/>
  - 로그인 페이지 CSS 추가 <br/>
 
- <h2> V 0.0.3 </h2> 19.06.13 <br/>
+ <h2> V 0.0.3 </h2> 19.06.13
  - 기존 작성된 코드 일부 수정 <br/>
    + MeetBar.js : wishgender 내용 삭제 => GenderList.js 파일 추가 <br/>
  - 파일 추가 <br/>
