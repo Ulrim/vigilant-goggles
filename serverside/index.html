@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Socket.IO chat</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <ul id="messages"></ul>
+    <form action="" id="room">
+        <input id="r" autocomplete="off" /><button>Send</button>
+    </form>
+    <form action="" id="chat">
+        <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            var socket = io();
+            $('#room').submit(function () {
+                socket.emit('join room', { room: $('#r').val() });
+                return false;
+            });
+            socket.on('room status', function (sts) {
+                $('#messages').append($('<li>').text(sts.status + ' 에 참가하였습니다.'));
+                $('#messages').append($('<li>').text(sts.id + ' 님이 참가하였습니다.'));
+                window.scrollTo(0, document.body.scrollHeight);
+            });
+            $('#chat').submit(function () {
+                socket.emit('chat message', { chat: $('#m').val() });
+                $('#m').val('');
+                return false;
+            });
+            socket.on('chat message', function (msg) {
+                $('#messages').append($('<li>').text(msg.chat));
+                window.scrollTo(0, document.body.scrollHeight);
+            });
+        });
+    </script>
+</body>
+
+</html>
